@@ -92,11 +92,18 @@ ${PASSWORD}    secret_sauce
 
 ลบสินค้าออกจากตระกร้าถ้ามี
     [Arguments]    ${removeproduct}
-    ${มีสินค้า}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath://*[text()="${removeproduct}"]/ancestor::div[@data-test='inventory-item']//button[contains(@class, 'cart_button')]
-    IF    ${มีสินค้า}
-        Click Button    xpath://*[text()="${removeproduct}"]/ancestor::div[@data-test='inventory-item']//button[contains(@class, 'cart_button')]
+
+    ${อยู่หน้าตะกร้าสินค้าไหม}=    Run Keyword And Return Status    Wait Until Element Is Visible    id:checkout    1s
+    IF    not ${อยู่หน้าตะกร้าสินค้าไหม}
+        Click Link    class:shopping_cart_link
     END
 
+    ${จำนวนปุ่ม}=    Get Element Count    xpath://*[text()="${removeproduct}"]/ancestor::div[@data-test='inventory-item']//button[contains(@class, 'cart_button')]
+
+    IF    ${จำนวนปุ่ม} > 0
+        Click Button    xpath://*[text()="${removeproduct}"]/ancestor::div[@data-test='inventory-item']//button[contains(@class, 'cart_button')]
+    END
+    
 ทำความสะอาดหลังจบการทดสอบ
     ลบสินค้าออกจากตระกร้าถ้ามี    Sauce Labs Backpack
     ลบสินค้าออกจากตระกร้าถ้ามี    Sauce Labs Bike Light
