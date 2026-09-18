@@ -37,6 +37,19 @@
 - ยืนยันคำสั่งซื้อ
 - ตรวจสอบข้อความ Thank you for your order!
 
+## CI/CD with GitHub Actions
+
+โปรเจกต์นี้ใช้ GitHub Actions สำหรับรัน Robot Framework tests อัตโนมัติทุกครั้งที่มีการ push code ขึ้น GitHub
+
+Workflow จะทำขั้นตอนดังนี้:
+
+- Checkout source code
+- Setup Python
+- Install dependencies จาก `requirements.txt`
+- Run Robot Framework tests แบบ Headless Chrome
+- Upload test results เป็น Artifact
+
+
 ## เครื่องมือที่ใช้
 
 - Python
@@ -107,6 +120,11 @@ robot -i smoke -d results/smoke --name "SauceDemo Smoke Tests" .
 รันเฉพาะเคส Tags regression:
 ```bash
 robot -i regression -d results/regression --name "SauceDemo Regression Tests" .
+```
+
+รันบน CI
+```bash
+robot -v BROWSER:headlesschrome -d results .
 ```
 
 ผลการรันจะถูกสร้างไว้ในโฟลเดอร์ `results`
