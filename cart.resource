@@ -27,8 +27,9 @@
 ลบสินค้าออกจากตระกร้าถ้ามี
     [Arguments]    ${removeproduct}
 
-    ${อยู่หน้าตะกร้าสินค้าไหม}=    Run Keyword And Return Status    Wait Until Element Is Visible    id:checkout    1s
-    IF    not ${อยู่หน้าตะกร้าสินค้าไหม}
+    ${มีปุ่มตะกร้า}=    Get Element Count    class:shopping_cart_link
+
+    IF    ${มีปุ่มตะกร้า} > 0
         Click Link    class:shopping_cart_link
     END
 
