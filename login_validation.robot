@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Test SetUp    เปิดหน้าเว็บ SauceDemo
 Test Teardown    Close Browser
 Test Template    Login ควรล้มเหลว
-
+Force Tags       regression
 
 *** Test Cases ***
 Login ด้วย Password ผิด       standard_user    wrong_password    Epic sadface: Username and password do not match any user in this service

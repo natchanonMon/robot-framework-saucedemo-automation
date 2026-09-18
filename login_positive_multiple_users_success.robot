@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Test Teardown    Close Browser
+Force Tags    regression
 
 *** Test Cases ***
 Login SauceDemo เช็คหลายไอดี สำเร็จ

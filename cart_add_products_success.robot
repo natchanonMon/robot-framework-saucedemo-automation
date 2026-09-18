@@ -6,7 +6,8 @@ Test Teardown    ทำความสะอาดหลังจบการท
 
 
 *** Test Cases ***
-Login เป็น Precondition เพื่อให้เข้าถึงสินค้าและตระกร้าสินค้าจากนั้นทดสอบว่าสามารถเพิ่ม Backpack และ Bike Light อย่างละ 1 ชิ้นและตระกร้าสินค้าแสดงสินค้ากับจำนวนได้ตามที่เพิ่มไหม
+เพิ่ม Backpack และ Bike Light ลงตะกร้าได้
+    [Tags]    smoke    regression
     กดปุ่ม Add to cart ของสินค้า    Sauce Labs Backpack
     กดปุ่ม Add to cart ของสินค้า    Sauce Labs Bike Light
     ตรวจสอบจำนวนสินค้าที่เพิ่มในตะกร้า    2
@@ -16,7 +17,8 @@ Login เป็น Precondition เพื่อให้เข้าถึงส
     ตรวจสอบว่าสินค้าอยู่ในตระกร้า    Sauce Labs Backpack
     ตรวจสอบว่าสินค้าอยู่ในตระกร้า     Sauce Labs Bike Light
 
-เพิ่ม Backpack 1 ชิ้นแล้วตะกร้าแสดงถูกต้อง
+เพิ่ม Backpack ลงตะกร้าได้
+    [Tags]    smoke    regression
     กดปุ่ม Add to cart ของสินค้า    Sauce Labs Backpack
     ตรวจสอบจำนวนสินค้าที่เพิ่มในตะกร้า    1
     เข้าหน้าตะกร้าสินค้า
