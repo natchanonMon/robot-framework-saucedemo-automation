@@ -2,6 +2,8 @@
 Library    SeleniumLibrary
 Library    String
 Resource    cart.resource
+Resource    login.resource
+Resource    checkout.resource
 Test Setup       เปิดเว็บและเข้าสู่ระบบ
 Test Teardown    Close Browser
 

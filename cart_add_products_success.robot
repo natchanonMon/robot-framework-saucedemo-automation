@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    cart.resource
+Resource    login.resource
 Test Setup       เปิดเว็บและเข้าสู่ระบบ
 Test Teardown    ทำความสะอาดหลังจบการทดสอบ
 
